@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8efe3">
+  <meta name="description" content="PROMPTUMN — интерактивный календарь на октябрь 2026.">
+  <title>PROMPTUMN — Октябрь 2026</title>
+  <link rel="preload" href="assets/background.webp" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <p class="kicker">October 2026</p>
+      <h1>Октябрь<br><span>по одному дню</span></h1>
+      <p class="hero-copy">Новый день открывается в <strong>10:00 МСК</strong>.</p>
+      <div class="status-panel" aria-live="polite">
+        <div class="progress-copy">
+          <span id="progressText">Проверяю календарь…</span>
+          <strong id="nextUnlock"></strong>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+      </div>
+    </header>
+
+    <section class="inside-section" aria-labelledby="insideTitle">
+      <div class="inside-head">
+        <p class="kicker">PROMPTUMN</p>
+        <h2 id="insideTitle">Что будет внутри?</h2>
+      </div>
+      <div class="inside-grid">
+        <article class="inside-card">
+          <div class="inside-icon" aria-hidden="true">🔥</div>
+          <div>
+            <h3>Практические промпты</h3>
+            <p>Для заданий, рабочих листов, текстов, идей для уроков, визуальных материалов и других преподавательских задач.</p>
+          </div>
+        </article>
+        <article class="inside-card">
+          <div class="inside-icon" aria-hidden="true">🔥</div>
+          <div>
+            <h3>9 коротких видеоуроков</h3>
+            <p>Без сложной теории — только то, что действительно помогает работать с AI эффективнее.</p>
+          </div>
+        </article>
+        <article class="inside-card">
+          <div class="inside-icon" aria-hidden="true">🔥</div>
+          <div>
+            <h3>Закрытый чат участников</h3>
+            <p>Вопросы, результаты, находки и примеры того, как другие преподаватели используют те же инструменты.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <main>
+      <section class="calendar-section" aria-labelledby="calendarTitle">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">1–31 октября</p>
+            <h2 id="calendarTitle">Календарь</h2>
+          </div>
+        </div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="dayModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <section class="modal-card blank-modal" role="dialog" aria-modal="true" aria-label="Открытый день">
+      <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+      <div class="blank-modal-date" id="modalDate"></div>
+      <div class="modal-empty" aria-hidden="true"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
